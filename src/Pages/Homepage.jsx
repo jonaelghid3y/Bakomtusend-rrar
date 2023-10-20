@@ -45,7 +45,7 @@ export default function Homepage() {
   return (
     
     <StyledDiv>
-      <StyledVideoElement autoPlay loop muted playsInline>
+      <StyledVideoElement autoplay="autoplay" loop="loop"  oncontextmenu="return false;"  preload="auto" defaultMuted muted playsInline>
         <source src="/Video.mp4" type="video/mp4" />
 
       </StyledVideoElement>
