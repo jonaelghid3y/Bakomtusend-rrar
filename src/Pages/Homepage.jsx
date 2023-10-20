@@ -220,6 +220,7 @@ background-color: white;
 color: black;
 border-radius: 30px;
 font-weight: bold;
+padding: 10px;
 @media (max-width: 768px) {
   width: 125px;
   height: 40px;
