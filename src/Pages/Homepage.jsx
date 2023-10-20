@@ -222,8 +222,8 @@ border-radius: 30px;
 font-weight: bold;
 padding: 10px;
 @media (max-width: 768px) {
-  width: 135px;
-  height: 40px;
+  width: 140px;
+  height: 45px;
   
   }
 
