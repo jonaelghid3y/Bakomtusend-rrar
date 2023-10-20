@@ -42,35 +42,14 @@ export default function Homepage() {
     hover: { scale: 1.2, transition: { duration: 0.3 } },
     tap: { scale: 0.9 }
   };
-
-  const autoplayVideo = async () => {
-    try {
-      const videoElement = document.querySelector('video');
-      if (videoElement) {
-       
-        await videoElement.play();
-      }
-    } catch (err) {
-      console.log("Autoplay failed:", err);
-    }
-  };
-
-  useEffect(() => {
-    autoplayVideo();
-  }, []); 
   return (
     
     <StyledDiv>
-      <StyledVideoElement id="video" autoPlay="autoplay" loop="loop"  preload="auto" muted playsInline>
-        <source src="/Video.mp4" type="video/mp4" />
+      <StyledVideoElement src="video.gif" >
+       
 
       </StyledVideoElement>
-      {/* <StyledImages>
-        <StyledImage1 src="/bild 2.jpg" />
-        <StyledImage2 src="/bild1.jpg" />
-        <StyledImage3 src="/bild3.jpg" />
-
-      </StyledImages> */}
+    
     <Link to='/biljett'>
       <StyledButton
         whileHover={{ scale: 1.05 }}
@@ -132,7 +111,7 @@ padding-top: 10vh;
   }
 
 `;
-const StyledVideoElement = styled.video`
+const StyledVideoElement = styled.img`
 width: 100%;
 height: 90vh;
 border: 1px solid black;
