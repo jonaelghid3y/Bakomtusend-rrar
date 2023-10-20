@@ -42,10 +42,26 @@ export default function Homepage() {
     hover: { scale: 1.2, transition: { duration: 0.3 } },
     tap: { scale: 0.9 }
   };
+
+  const autoplayVideo = async () => {
+    try {
+      const videoElement = document.querySelector('video');
+      if (videoElement) {
+       
+        await videoElement.play();
+      }
+    } catch (err) {
+      console.log("Autoplay failed:", err);
+    }
+  };
+
+  useEffect(() => {
+    autoplayVideo();
+  }, []); 
   return (
     
     <StyledDiv>
-      <StyledVideoElement autoPlay="autoplay" loop="loop"  preload="auto" muted playsInline>
+      <StyledVideoElement id="video" autoPlay="autoplay" loop="loop"  preload="auto" muted playsInline>
         <source src="/Video.mp4" type="video/mp4" />
 
       </StyledVideoElement>
