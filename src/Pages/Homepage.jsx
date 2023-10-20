@@ -1,18 +1,38 @@
 import styled from 'styled-components';
-import { motion,useAnimation } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 import { AiFillInstagram, AiFillFacebook } from 'react-icons/ai';
 import { BsSpotify } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
 export default function Homepage() {
-    const controls = useAnimation();
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+
+    const handleResize = () => {
+
+      if (window.innerWidth < 768) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); 
+
+  const controls = useAnimation();
   const { ref, inView } = useInView({
-    triggerOnce: true,  
-    threshold: 0.1      
+    triggerOnce: true,
+    threshold: 0.1
   });
 
   useEffect(() => {
@@ -43,20 +63,23 @@ export default function Homepage() {
     tap: { scale: 0.9 }
   };
   return (
-    
-    <StyledDiv>
-      <StyledVideoElement src="video.gif" >
-       
 
-      </StyledVideoElement>
-    
-    <Link to='/biljett'>
-      <StyledButton
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.9 }}
+    <StyledDiv>
+      {isMobile ? (
+        <StyledImgElement src="/video.gif" alt="Your content" />
+      ) : (
+        <StyledVideoElement autoPlay loop muted playsInline>
+          <source src="/Video.mp4" type="video/mp4" />
+        </StyledVideoElement>
+      )}
+
+      <Link to='/biljett'>
+        <StyledButton
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.9 }}
         >KÖP BILJETT
         </StyledButton>
-        </Link>
+      </Link>
       <Styledfooter
         as={motion.div}
         variants={containerVariants}
@@ -88,11 +111,11 @@ export default function Homepage() {
           </Link>
         </motion.div>
       </Styledfooter>
-   
-   
+
+
     </StyledDiv>
-  
-)
+
+  )
 }
 const StyledDiv = styled.div`
 width: 100%;
@@ -111,7 +134,23 @@ padding-top: 10vh;
   }
 
 `;
-const StyledVideoElement = styled.img`
+const StyledImgElement = styled.img`
+width: 100%;
+height: 90vh;
+border: 1px solid black;
+background-color: black;
+object-fit: contain;
+margin-bottom: 50px;
+@media (max-width: 768px) {
+  padding-top: 60px;
+  width: 75%;
+  height: 50vh;
+  margin-bottom: 5vh;
+  
+  }
+
+`;
+const StyledVideoElement = styled.video`
 width: 100%;
 height: 90vh;
 border: 1px solid black;
