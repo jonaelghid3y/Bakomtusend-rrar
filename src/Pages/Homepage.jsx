@@ -104,7 +104,7 @@ export default function Homepage() {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Link to="https://www.facebook.com/" target='blank'>
+          <Link to="https://www.facebook.com/events/1374576573129379/?mibextid=OosqiT" target='blank'>
             <motion.div variants={iconHoverTap} whileHover="hover" whileTap="tap">
               <FacebookIcon size={30} />
             </motion.div>
