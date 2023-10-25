@@ -263,6 +263,7 @@ border-radius: 30px;
 font-weight: bold;
 padding: 10px;
 @media (max-width: 768px) {
+  margin-top: 3vh;
   width: 120px;
   height: 40px;
   border-radius: 18px;
