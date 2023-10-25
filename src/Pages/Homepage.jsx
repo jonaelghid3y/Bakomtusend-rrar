@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { motion, useAnimation } from 'framer-motion'
 import { AiFillInstagram, AiFillFacebook } from 'react-icons/ai';
 import { BsSpotify } from 'react-icons/bs';
+import { FaLocationDot } from 'react-icons/fa6'
 import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useState } from 'react';
@@ -27,7 +28,7 @@ export default function Homepage() {
     handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
-  }, []); 
+  }, []);
 
   const controls = useAnimation();
   const { ref, inView } = useInView({
@@ -62,6 +63,21 @@ export default function Homepage() {
     hover: { scale: 1.2, transition: { duration: 0.3 } },
     tap: { scale: 0.9 }
   };
+  const variants = {
+    hidden: { 
+      opacity: 0, 
+      y: 0,
+      duration: 0,
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: {
+        duration: 3, 
+        ease: "easeInOut", 
+      }
+    }
+  };
   return (
 
     <StyledDiv>
@@ -72,9 +88,20 @@ export default function Homepage() {
           <source src="/Video.mp4" type="video/mp4" />
         </StyledVideoElement>
       )}
+      <StyledLocationDiv   initial="hidden" 
+      animate="visible" 
+      variants={variants}  >
+        <StyledHeadline>18/11-2023</StyledHeadline>
+        <Link className="länk" to='https://www.google.com/maps/place/Tegelbruksv%C3%A4gen+12/@63.7935048,20.305076,17z/data=!4m7!3m6!1s0x467c5a44328cbbe7:0x5468060850284677!4b1!8m2!3d63.7935048!4d20.305076!16s%2Fg%2F11cncf1c0b?entry=ttu' target='_blank'>
+          <StyledrowDiv><FaLocationDot color='white' size={12} /><Styledp>Tegelbruksvägen 12, Umeå</Styledp></StyledrowDiv>
+          </Link>
+      </StyledLocationDiv>
 
       <Link to='/biljett'>
         <StyledButton
+        variants={variants}
+        initial="hidden" 
+         animate="visible"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >KÖP BILJETT
@@ -90,7 +117,7 @@ export default function Homepage() {
         <motion.div variants={itemVariants}>
           <Link to="https://www.instagram.com/bakomtusendorrar/" target='blank'>
             <motion.div variants={iconHoverTap} whileHover="hover" whileTap="tap">
-              <InstagramIcon size={30} />
+              <InstagramIcon size={28} />
             </motion.div>
           </Link>
         </motion.div>
@@ -98,7 +125,7 @@ export default function Homepage() {
         <motion.div variants={itemVariants}>
           <Link to="https://open.spotify.com/artist/4aasdaIuS8kGfeGxDlC52i" target='blank'>
             <motion.div variants={iconHoverTap} whileHover="hover" whileTap="tap">
-              <SpotifyIcon size={30} />
+              <SpotifyIcon size={28} />
             </motion.div>
           </Link>
         </motion.div>
@@ -106,7 +133,7 @@ export default function Homepage() {
         <motion.div variants={itemVariants}>
           <Link to="https://www.facebook.com/events/1374576573129379/?mibextid=OosqiT" target='blank'>
             <motion.div variants={iconHoverTap} whileHover="hover" whileTap="tap">
-              <FacebookIcon size={30} />
+              <FacebookIcon size={28} />
             </motion.div>
           </Link>
         </motion.div>
@@ -125,10 +152,10 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 background-color: black;
-padding-top: 10vh;
+padding-top: 5vh;
 @media (max-width: 768px) {
-  padding-top: 20px;
-  justify-content: flex-start;
+  padding-top: 0px;
+  justify-content: flex-end;
   height: 100vh;
   
   }
@@ -166,50 +193,60 @@ margin-bottom: 50px;
   }
 
 `;
-// const StyledImages = styled.div`
+const StyledLocationDiv = styled(motion.div)`
+display: flex;
+opacity: 0.97;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+gap: 20px;
+font-family: 'Roboto';
+font-weight: bold;
+.länk{
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  gap: 10px;
+  
+  }
+`;
+const StyledrowDiv = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
 
-// width: 100%;
-// height: 60vh;
-// display: flex;
-// align-items: flex-end;
-// justify-content: center;
-// gap: 13vw;
-// margin-top: 150px;
-// margin-bottom: 100px;
+gap: 2px;
+@media (max-width: 768px) {
+  
+  
+  }
+`;
+const Styledp = styled.p`
+color: lightgray;
+font-size: 14px;
+@media (max-width: 768px) {
 
-// @media (max-width: 768px) {
-// flex-direction: column;
-// align-items: center;
-// margin-bottom: 200px;
+  font-size: 12px;
+  }
 
-// }
+`;
+const StyledHeadline = styled.p`
 
+color: lightgray;
+letter-spacing: 4px;
+font-size: 30px;
 
-// `;
-// const StyledImage1 = styled.img`
+font-family: saturdayNight;
+@media (max-width: 768px) {
+  margin-top: 30px;
+ font-size: 15px;
+  
+  }
 
-// width: 200px;
-// height: 380px;
-// `;
-// const StyledImage2 = styled.img`
+`;
 
-// width: 150px;
-// height: 150px;
-
-// @media (max-width: 768px) {
-// display: none;
-
-// }
-
-// `;
-// const StyledImage3 = styled.img`
-
-// width: 200px;
-// height: 300px;
-
-// `;
 const StyledButton = styled(motion.button)`
-margin-top: 15vh;
+margin-top: 5vh;
 font-family: 'Roboto';
 letter-spacing: 2.5px;
 width: 150px;
@@ -222,8 +259,10 @@ border-radius: 30px;
 font-weight: bold;
 padding: 10px;
 @media (max-width: 768px) {
-  width: 140px;
-  height: 45px;
+  width: 110px;
+  height: 40px;
+  border-radius: 18px;
+  font-size: 10px;
   
   }
 
@@ -239,13 +278,13 @@ box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
 `
 const Styledfooter = styled.footer`
 width: 100%;
-height: 200px;
+height: 150px;
 display: flex;
 align-items: center;
 justify-content: center;
 gap: 40px;
 @media (max-width: 768px) {
-  height: 170px;
+  height: 120px;
   
   }
 
