@@ -93,7 +93,7 @@ export default function Homepage() {
       variants={variants}  >
         <StyledHeadline>18/11-2023</StyledHeadline>
         <Link className="länk" to='https://www.google.com/maps/place/Tegelbruksv%C3%A4gen+12/@63.7935048,20.305076,17z/data=!4m7!3m6!1s0x467c5a44328cbbe7:0x5468060850284677!4b1!8m2!3d63.7935048!4d20.305076!16s%2Fg%2F11cncf1c0b?entry=ttu' target='_blank'>
-          <StyledrowDiv><FaLocationDot color='white' size={12} /><Styledp>Tegelbruksvägen 12, Umeå</Styledp> </StyledrowDiv> 
+          <StyledrowDiv><Styledp><Location size={12}/>Tegelbruksvägen 12<br/> Umeå</Styledp> </StyledrowDiv> 
           </Link>
       </StyledLocationDiv>
 
@@ -224,6 +224,9 @@ gap: 2px;
 const Styledp = styled.p`
 color: lightgray;
 font-size: 14px;
+text-align: center;
+letter-spacing: 2.5px;
+line-height: 2;
 @media (max-width: 768px) {
 
   font-size: 12px;
@@ -289,6 +292,12 @@ gap: 40px;
   }
 
 `;
+const Location = styled(FaLocationDot)`
+
+color: white;
+margin-bottom: -0.5px;
+margin-right: 5px;
+`
 const InstagramIcon = styled(AiFillInstagram)`
 color: white;
 transition: 0.5s;

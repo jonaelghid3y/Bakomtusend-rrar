@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;1,500&family=Roboto:ital,wght@0,300;1,100;1,300&display=swap');
 @font-face {
   font-family: 'SaturdayNight'; /* a name to be used later */
-  src: url('/public/good\ times\ rg.otf'); /* for modern browsers */
+  src: url('/public/Good\ Times\ 400.ttf'); /* for modern browsers */
 }
 *{
   margin: 0;
