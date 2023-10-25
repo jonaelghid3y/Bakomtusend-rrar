@@ -259,7 +259,7 @@ border-radius: 30px;
 font-weight: bold;
 padding: 10px;
 @media (max-width: 768px) {
-  width: 110px;
+  width: 120px;
   height: 40px;
   border-radius: 18px;
   font-size: 10px;
