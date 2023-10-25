@@ -93,7 +93,7 @@ export default function Homepage() {
       variants={variants}  >
         <StyledHeadline>18/11-2023</StyledHeadline>
         <Link className="länk" to='https://www.google.com/maps/place/Tegelbruksv%C3%A4gen+12/@63.7935048,20.305076,17z/data=!4m7!3m6!1s0x467c5a44328cbbe7:0x5468060850284677!4b1!8m2!3d63.7935048!4d20.305076!16s%2Fg%2F11cncf1c0b?entry=ttu' target='_blank'>
-          <StyledrowDiv><FaLocationDot color='white' size={12} /><Styledp>Tegelbruksvägen 12, Umeå</Styledp></StyledrowDiv>
+          <StyledrowDiv><FaLocationDot color='white' size={12} /><Styledp>Tegelbruksvägen 12, Umeå</Styledp> </StyledrowDiv> 
           </Link>
       </StyledLocationDiv>
 
