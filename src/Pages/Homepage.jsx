@@ -227,6 +227,7 @@ font-size: 14px;
 text-align: center;
 letter-spacing: 2.5px;
 line-height: 2;
+
 @media (max-width: 768px) {
 
   font-size: 12px;
@@ -239,7 +240,7 @@ color: lightgray;
 letter-spacing: 4px;
 font-size: 30px;
 
-font-family: saturdayNight;
+font-family: 'Cherry bomb one', sans-serif;
 @media (max-width: 768px) {
   margin-top: 30px;
  font-size: 15px;
